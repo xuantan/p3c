@@ -150,4 +150,31 @@ Positive example: For codes which are temporarily removed and likely to be reuse
 ]]>
         </example>
     </rule>
+
+    <rule name="MethodComplexityMustHaveCommentRule"
+          message="java.comment.MethodComplexityMustHaveCommentRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.comment.MethodComplexityMustHaveCommentRule">
+        <description>java.comment.MethodComplexityMustHaveCommentRule.rule.desc</description>
+        <priority>3</priority>
+        <example>
+<![CDATA[
+    /**
+     * Process user data with complex business logic.
+     * This method handles user authentication, data validation,
+     * and business rule application.
+     * 
+     * @param userId the unique identifier of the user
+     * @param userData the user data to be processed
+     * @param options processing options and configurations
+     * @param callback callback function for async processing
+     * @return processed result containing status and data
+     */
+    public ProcessResult processComplexUserData(Long userId, UserData userData, 
+                                               ProcessOptions options, ProcessCallback callback) {
+        // Complex method implementation
+        return result;
+    }
+]]>
+        </example>
+    </rule>
 </ruleset>

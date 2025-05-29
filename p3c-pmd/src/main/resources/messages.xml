@@ -100,7 +100,7 @@
         <![CDATA[POJO类中的任何布尔类型的变量，都不要加is，否则部分框架解析会引起序列化错误]]>
     </entry>
     <entry key="java.naming.ArrayNamingShouldHaveBracketRule.rule.msg">
-        <![CDATA[中括号是数组类型的一部分，数组定义如下：String[] args]]>
+        <![CDATA[中括号是数组类型的一部分，数组定义如下：String[] args]]>
     </entry>
 
     <entry key="java.concurrent.AvoidUseTimerRule.violation.msg">使用ScheduledExecutorService代替Timer吧</entry>
@@ -133,7 +133,7 @@
     </entry>
     <entry key="java.concurrent.AvoidManuallyCreateThreadRule.rule.desc">
         <![CDATA[
-说明：使用线程池的好处是减少在创建和销毁线程上所花的时间以及系统资源的开销，解决资源不足的问题。如果不使用线程池，有可能造成系统创建大量同类线程而导致消耗完内存或者“过度切换”的问题。
+说明：使用线程池的好处是减少在创建和销毁线程上所花的时间以及系统资源的开销，解决资源不足的问题。如果不使用线程池，有可能造成系统创建大量同类线程而导致消耗完内存或者"过度切换"的问题。
        ]]>
     </entry>
 
@@ -451,6 +451,30 @@
         ]]>
     </entry>
 
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.missing">
+        <![CDATA[复杂方法【%s】缺少详细的javadoc注释]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.format">
+        <![CDATA[复杂方法【%s】必须使用javadoc格式的注释]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.detail">
+        <![CDATA[复杂方法【%s】的注释应包含详细的功能描述]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.param">
+        <![CDATA[复杂方法【%s】缺少参数的javadoc注释]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.return">
+        <![CDATA[复杂方法【%s】缺少返回值的javadoc注释]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.rule.msg">
+        <![CDATA[复杂方法（参数超过3个或代码行数超过20行）必须有详细的javadoc注释说明]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.rule.desc">
+        <![CDATA[
+说明：复杂方法应该包含完整的功能描述、参数说明、返回值说明，以提高代码可读性和可维护性。
+        ]]>
+    </entry>
+
     <!-- java other -->
     <entry key="java.other.AvoidPatternCompileInMethodRule.rule.msg">
         <![CDATA[在使用正则表达式时，利用好其预编译功能，可以有效加快正则匹配速度。]]>
@@ -469,7 +493,7 @@
     </entry>
     <entry key="java.other.AvoidApacheBeanUtilsCopyRule.rule.desc">
         <![CDATA[
-说明：Apache BeanUtils性能较差，可以使用其他方案比如Spring BeanUtils, Cglib BeanCopier。
+说明：Apache Bean Utils性能较差，可以使用其他方案比如Spring Bean Utils, Cglib Bean Copier。
         ]]>
     </entry>
 
@@ -504,7 +528,7 @@
     </entry>
 
     <entry key="java.other.UseRightCaseForDateFormatRule.rule.msg">
-        <![CDATA[日期格式化字符串[%s]使用错误，应注意使用小写‘y’表示当天所在的年，大写‘Y’代表week in which year。]]>
+        <![CDATA[日期格式化字符串[%s]使用错误，应注意使用小写'y'表示当天所在的年，大写'Y'代表week in which year。]]>
     </entry>
     <entry key="java.other.UseRightCaseForDateFormatRule.rule.desc">
         <![CDATA[日期格式化时，yyyy表示当天所在的年，而大写的YYYY代表是week in which year（JDK7之后引入的概念），意思是当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，返回的YYYY就是下一年。]]>
@@ -528,7 +552,7 @@
     </entry>
     <entry key="java.other.AvoidDoubleOrFloatEqualCompareRule.rule.desc">
         <![CDATA[
-浮点数采用“尾数+阶码”的编码方式，类似于科学计数法的“有效数字+指数”的表示方式。二进制无法精确表示大部分的十进制小数，具体原理参考《码出高效》
+浮点数采用"尾数+阶码"的编码方式，类似于科学计数法的"有效数字+指数"的表示方式。二进制无法精确表示大部分的十进制小数，具体原理参考《码出高效》
 改进方式:
 1）指定一个误差范围，两个浮点数的差值在此范围之内，则认为是相等的
     float a = 1.0f - 0.9f;
@@ -553,6 +577,13 @@
     </entry>
     <entry key="java.other.AvoidDoubleOrFloatEqualCompareRule.rule.msg">
         <![CDATA[浮点数之间的等值判断，基本数据类型不能用==来比较，包装数据类型不能用equals来判断。]]>
+    </entry>
+
+    <entry key="java.naming.MethodParameterShouldBeMeaningfulRule.violation.msg">
+        <![CDATA[方法【%s】的参数【%s】命名应具有明确含义，避免使用单字母或无意义缩写]]>
+    </entry>
+    <entry key="java.naming.MethodParameterShouldBeMeaningfulRule.rule.msg">
+        <![CDATA[方法参数应使用有意义的命名，避免使用单字母或无意义的缩写，以提高代码可读性]]>
     </entry>
 
 </properties>

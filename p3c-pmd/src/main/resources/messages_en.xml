@@ -102,7 +102,7 @@
         <![CDATA[Do not add 'is' as prefix while defining Boolean variable, since it may cause a serialization exception in some Java Frameworks]]>
     </entry>
     <entry key="java.naming.ArrayNamingShouldHaveBracketRule.rule.msg">
-        <![CDATA[Brackets are a part of an Array type. The definition could be: String[] args]]>
+        <![CDATA[Square brackets are part of the array type, array definition should be: String[] args]]>
     </entry>
     <entry key="java.concurrent.AvoidUseTimerRule.violation.msg">Use ScheduledExecutorService instead.</entry>
     <entry key="java.concurrent.AvoidUseTimerRule.rule.msg">
@@ -447,10 +447,33 @@ The format of date is 'yyyy/MM/dd'.
     </entry>
     <entry key="java.comment.RemoveCommentedCodeRule.rule.desc">
         <![CDATA[
-Note: Remove obsoleted codes or configuration in time to avoid code redundancy.
+Note: For legacy codes or useless configurations, do clean them up resolutely to avoid excessive code bloat and redundancy.
         ]]>
     </entry>
 
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.missing">
+        <![CDATA[Complex method [%s] is missing detailed javadoc comments]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.format">
+        <![CDATA[Complex method [%s] must use javadoc format comments]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.detail">
+        <![CDATA[Complex method [%s] should include detailed functional description in comments]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.param">
+        <![CDATA[Complex method [%s] is missing javadoc comments for parameters]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.violation.msg.return">
+        <![CDATA[Complex method [%s] is missing javadoc comments for return value]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.rule.msg">
+        <![CDATA[Complex methods (with more than 3 parameters or more than 20 lines of code) must have detailed javadoc comments]]>
+    </entry>
+    <entry key="java.comment.MethodComplexityMustHaveCommentRule.rule.desc">
+        <![CDATA[
+Note: Complex methods should include complete functional description, parameter description, and return value description to improve code readability and maintainability.
+        ]]>
+    </entry>
 
     <!-- jave other -->
     <entry key="java.other.AvoidPatternCompileInMethodRule.rule.msg">
@@ -558,6 +581,13 @@ Positive example:
     </entry>
     <entry key="java.other.AvoidDoubleOrFloatEqualCompareRule.rule.msg">
         <![CDATA[To judge the equivalence of floating-point numbers, == cannot be used for primitive types, while equals cannot be used for wrapper classes.]]>
+    </entry>
+
+    <entry key="java.naming.MethodParameterShouldBeMeaningfulRule.violation.msg">
+        <![CDATA[Parameter [%s] in method [%s] should have meaningful name, avoid using single letters or meaningless abbreviations]]>
+    </entry>
+    <entry key="java.naming.MethodParameterShouldBeMeaningfulRule.rule.msg">
+        <![CDATA[Method parameters should have meaningful names, avoid using single letters or meaningless abbreviations to improve code readability]]>
     </entry>
 
 </properties>

@@ -158,4 +158,25 @@
         </example>
     </rule>
 
+    <rule name="MethodParameterShouldBeMeaningfulRule"
+          language="java"
+          since="1.6"
+          message="java.naming.MethodParameterShouldBeMeaningfulRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.naming.MethodParameterShouldBeMeaningfulRule">
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+    // Positive example:
+    public void processUser(String userName, int userId) {
+        // ...
+    }
+    
+    // Negative example:
+    public void processUser(String a, int b) {
+        // ...
+    }
+            ]]>
+        </example>
+    </rule>
+
 </ruleset>
