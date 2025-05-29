@@ -158,4 +158,27 @@
         </example>
     </rule>
 
+    <rule name="ConstantNameShouldContainTypeRule"
+          language="java"
+          since="1.6"
+          message="java.naming.ConstantNameShouldContainTypeRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.naming.ConstantNameShouldContainTypeRule">
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+    public class Constants {
+        // Good examples:
+        public static final int MAX_COUNT_INT = 100;
+        public static final double MIN_VALUE_DOUBLE = 0.001;
+        public static final String DEFAULT_NAME_STRING = "unknown";
+        
+        // Bad examples:
+        public static final int maxCount = 100; // Should be MAX_COUNT_INT
+        public static final double minValue = 0.001; // Should be MIN_VALUE_DOUBLE
+        public static final String defaultName = "unknown"; // Should be DEFAULT_NAME_STRING
+    }
+            ]]>
+        </example>
+    </rule>
+
 </ruleset>

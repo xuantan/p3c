@@ -150,4 +150,25 @@ Positive example: For codes which are temporarily removed and likely to be reuse
 ]]>
         </example>
     </rule>
+
+    <rule name="MethodParamCommentRule"
+          message="java.comment.MethodParamCommentRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.comment.MethodParamCommentRule">
+        <description>java.comment.MethodParamCommentRule.rule.desc</description>
+        <priority>3</priority>
+        <example>
+<![CDATA[
+    /**
+     * Set user information
+     * 
+     * @param name (String) The user's name
+     * @param age (int) The user's age
+     * @return void
+     */
+    public void setUserInfo(String name, int age) {
+        // implementation
+    }
+]]>
+        </example>
+    </rule>
 </ruleset>
