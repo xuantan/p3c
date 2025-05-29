@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns="http://pmd.sourceforge.net/rule-tests"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+    <code-fragment id="method-without-parameters"><![CDATA[
+public class Test {
+    /**
+     * Get the name
+     * @return the name
+     */
+    public String getName() {
+        return "test";
+    }
+}
+    ]]>
+    </code-fragment>
+    <test-code>
+        <description>Method without parameters should pass</description>
+        <expected-problems>0</expected-problems>
+        <code-ref id="method-without-parameters" />
+    </test-code>
+
+    <code-fragment id="method-with-parameters-no-javadoc"><![CDATA[
+public class Test {
+    public String setName(String name, int age) {
+        return "test";
+    }
+}
+    ]]>
+    </code-fragment>
+    <test-code>
+        <description>Method with parameters but no Javadoc should fail</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>2</expected-linenumbers>
+        <code-ref id="method-with-parameters-no-javadoc" />
+    </test-code>
+
+    <code-fragment id="method-with-incomplete-param-tags"><![CDATA[
+public class Test {
+    /**
+     * Set the name and age
+     * @param name the name to set
+     * @return the test string
+     */
+    public String setName(String name, int age) {
+        return "test";
+    }
+}
+    ]]>
+    </code-fragment>
+    <test-code>
+        <description>Method with missing @param tag should fail</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>6</expected-linenumbers>
+        <code-ref id="method-with-incomplete-param-tags" />
+    </test-code>
+
+    <code-fragment id="method-with-complete-param-tags"><![CDATA[
+public class Test {
+    /**
+     * Set the name and age
+     * @param name the name to set
+     * @param age the age to set
+     * @return the test string
+     */
+    public String setName(String name, int age) {
+        return "test";
+    }
+}
+    ]]>
+    </code-fragment>
+    <test-code>
+        <description>Method with complete @param tags should pass</description>
+        <expected-problems>0</expected-problems>
+        <code-ref id="method-with-complete-param-tags" />
+    </test-code>
+
+    <code-fragment id="multiple-methods-mixed-cases"><![CDATA[
+public class Test {
+    /**
+     * Get the name
+     * @return the name
+     */
+    public String getName() {
+        return "test";
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    /**
+     * Set the full name
+     * @param firstName the first name
+     * @return the full name
+     */
+    public String setFullName(String firstName, String lastName) {
+        return firstName + " " + lastName;
+    }
+
+    /**
+     * Set all details
+     * @param name the name to set
+     * @param age the age to set
+     * @param address the address to set
+     * @return success status
+     */
+    public boolean setDetails(String name, int age, String address) {
+        return true;
+    }
+}
+    ]]>
+    </code-fragment>
+    <test-code>
+        <description>Multiple methods with mixed cases</description>
+        <expected-problems>2</expected-problems>
+        <expected-linenumbers>9,16</expected-linenumbers>
+        <code-ref id="multiple-methods-mixed-cases" />
+    </test-code>
+
+</test-data>
