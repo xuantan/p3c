@@ -150,4 +150,25 @@ Positive example: For codes which are temporarily removed and likely to be reuse
 ]]>
         </example>
     </rule>
+
+    <rule name="MethodParameterMustHaveJavadocRule"
+          message="java.comment.MethodParameterMustHaveJavadocRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.comment.MethodParameterMustHaveJavadocRule">
+        <description>java.comment.MethodParameterMustHaveJavadocRule.rule.desc</description>
+        <priority>3</priority>
+        <example>
+<![CDATA[
+    /**
+     * Calculate the sum of two numbers.
+     *
+     * @param a the first number to add
+     * @param b the second number to add
+     * @return the sum of a and b
+     */
+    public int add(int a, int b) {
+        return a + b;
+    }
+]]>
+        </example>
+    </rule>
 </ruleset>

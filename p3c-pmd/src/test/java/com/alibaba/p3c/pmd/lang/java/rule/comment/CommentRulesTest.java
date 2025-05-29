@@ -36,5 +36,6 @@ public class CommentRulesTest extends SimpleAggregatorTst {
         addRule(RULESET, "EnumConstantsMustHaveCommentRule");
         addRule(RULESET, "AvoidCommentBehindStatementRule");
         addRule(RULESET, "RemoveCommentedCodeRule");
+        addRule(RULESET, "MethodParameterMustHaveJavadocRule");
     }
 }
