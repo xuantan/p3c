@@ -158,4 +158,25 @@
         </example>
     </rule>
 
+    <rule name="MethodParameterNamingRule"
+          language="java"
+          since="1.6"
+          message="java.naming.MethodParameterNamingRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.naming.MethodParameterNamingRule">
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+    // Positive example:
+    public void processUserData(String userName, int userAge) {
+        // implementation
+    }
+    
+    // Negative example:
+    public void processUserData(String a, int b) {
+        // implementation
+    }
+            ]]>
+        </example>
+    </rule>
+
 </ruleset>

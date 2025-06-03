@@ -150,4 +150,28 @@ Positive example: For codes which are temporarily removed and likely to be reuse
 ]]>
         </example>
     </rule>
+
+    <rule name="AvoidTodoCommentRule"
+          message="java.comment.AvoidTodoCommentRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.comment.AvoidTodoCommentRule">
+        <description>java.comment.AvoidTodoCommentRule.rule.desc</description>
+        <priority>3</priority>
+        <example>
+<![CDATA[
+Negative example:
+public void processData() {
+    // TODO: implement this method later
+    // FIXME: handle edge cases
+    // XXX: this is a hack
+}
+
+Positive example:
+public void processData() {
+    // Process user data with validation
+    validateUserInput();
+    processValidatedData();
+}
+]]>
+        </example>
+    </rule>
 </ruleset>

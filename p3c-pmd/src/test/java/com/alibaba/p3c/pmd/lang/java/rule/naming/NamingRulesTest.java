@@ -40,5 +40,6 @@ public class NamingRulesTest extends SimpleAggregatorTst {
         addRule(RULESET, "BooleanPropertyShouldNotStartWithIsRule");
         addRule(RULESET, "ArrayNamingShouldHaveBracketRule");
         addRule(RULESET, "PackageNamingRule");
+        addRule(RULESET, "MethodParameterNamingRule");
     }
 }

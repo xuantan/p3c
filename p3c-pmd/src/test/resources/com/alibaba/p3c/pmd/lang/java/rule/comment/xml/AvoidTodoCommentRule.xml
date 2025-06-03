@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns="http://pmd.sourceforge.net/rule-tests"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+    
+    <!-- Test case for TODO comment (negative) -->
+    <code-fragment id="TodoComment">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        // TODO: implement this method later
+        System.out.println("Processing...");
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should detect TODO comments</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>3</expected-linenumbers>
+        <code-ref id="TodoComment" />
+    </test-code>
+
+    <!-- Test case for FIXME comment (negative) -->
+    <code-fragment id="FixmeComment">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        /* FIXME: handle edge cases */
+        processValidatedData();
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should detect FIXME comments</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>3</expected-linenumbers>
+        <code-ref id="FixmeComment" />
+    </test-code>
+
+    <!-- Test case for XXX comment (negative) -->
+    <code-fragment id="XxxComment">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        // XXX: this is a hack
+        doSomething();
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should detect XXX comments</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>3</expected-linenumbers>
+        <code-ref id="XxxComment" />
+    </test-code>
+
+    <!-- Test case for HACK comment (negative) -->
+    <code-fragment id="HackComment">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        // HACK: temporary workaround
+        temporaryFix();
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should detect HACK comments</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>3</expected-linenumbers>
+        <code-ref id="HackComment" />
+    </test-code>
+
+    <!-- Test case for BUG comment (negative) -->
+    <code-fragment id="BugComment">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        /* BUG: this might cause issues */
+        riskyOperation();
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should detect BUG comments</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>3</expected-linenumbers>
+        <code-ref id="BugComment" />
+    </test-code>
+
+    <!-- Test case for normal comments (positive) -->
+    <code-fragment id="NormalComments">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        // Process user data with validation
+        validateUserInput();
+        // Handle successful processing
+        processValidatedData();
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should not detect normal comments</description>
+        <expected-problems>0</expected-problems>
+        <code-ref id="NormalComments" />
+    </test-code>
+
+    <!-- Test case for mixed comments -->
+    <code-fragment id="MixedComments">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        // Normal comment
+        validateInput();
+        // TODO: add error handling
+        processData();
+        // Another normal comment
+        cleanup();
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should detect only problematic comments</description>
+        <expected-problems>1</expected-problems>
+        <expected-linenumbers>5</expected-linenumbers>
+        <code-ref id="MixedComments" />
+    </test-code>
+
+    <!-- Test case for case insensitive detection -->
+    <code-fragment id="CaseInsensitiveComments">
+        <![CDATA[
+public class TestClass {
+    public void processData() {
+        // todo: lower case
+        // Todo: mixed case
+        // TODO: upper case
+        process();
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Should detect TODO in any case</description>
+        <expected-problems>3</expected-problems>
+        <expected-linenumbers>3,4,5</expected-linenumbers>
+        <code-ref id="CaseInsensitiveComments" />
+    </test-code>
+</test-data>

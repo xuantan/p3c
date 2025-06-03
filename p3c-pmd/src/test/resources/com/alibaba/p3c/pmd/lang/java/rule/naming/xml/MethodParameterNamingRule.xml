@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns="http://pmd.sourceforge.net/rule-tests"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+    
+    <!-- Test case for single character parameter names (negative) -->
+    <code-fragment id="SingleCharParameterName">
+        <![CDATA[
+public class TestClass {
+    public void processData(String a, int b) {
+        // implementation
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Method parameter should not use single character names</description>
+        <expected-problems>2</expected-problems>
+        <expected-linenumbers>2,2</expected-linenumbers>
+        <code-ref id="SingleCharParameterName" />
+    </test-code>
+
+    <!-- Test case for meaningful parameter names (positive) -->
+    <code-fragment id="MeaningfulParameterName">
+        <![CDATA[
+public class TestClass {
+    public void processUserData(String userName, int userAge) {
+        // implementation
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Method parameter should use meaningful names</description>
+        <expected-problems>0</expected-problems>
+        <code-ref id="MeaningfulParameterName" />
+    </test-code>
+
+    <!-- Test case for allowed single character loop variables (positive) -->
+    <code-fragment id="AllowedLoopVariables">
+        <![CDATA[
+public class TestClass {
+    public void processLoop(int i, int j, int k) {
+        for (int x = 0; x < 10; x++) {
+            // loop implementation
+        }
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Common loop variables should be allowed</description>
+        <expected-problems>0</expected-problems>
+        <code-ref id="AllowedLoopVariables" />
+    </test-code>
+
+    <!-- Test case for parameter names starting with numbers (negative) -->
+    <code-fragment id="ParameterNameStartsWithNumber">
+        <![CDATA[
+public class TestClass {
+    public void processData(String 1stParam, int 2ndParam) {
+        // implementation
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Parameter names should not start with numbers</description>
+        <expected-problems>2</expected-problems>
+        <expected-linenumbers>2,2</expected-linenumbers>
+        <code-ref id="ParameterNameStartsWithNumber" />
+    </test-code>
+
+    <!-- Test case for mixed valid and invalid parameter names -->
+    <code-fragment id="MixedParameterNames">
+        <![CDATA[
+public class TestClass {
+    public void processData(String userName, int a, double value, char c) {
+        // implementation
+    }
+}
+        ]]>
+    </code-fragment>
+    <test-code>
+        <description>Mix of valid and invalid parameter names</description>
+        <expected-problems>2</expected-problems>
+        <expected-linenumbers>2,2</expected-linenumbers>
+        <code-ref id="MixedParameterNames" />
+    </test-code>
+</test-data>
