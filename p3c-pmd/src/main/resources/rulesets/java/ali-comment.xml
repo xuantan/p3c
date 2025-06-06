@@ -134,20 +134,47 @@
     </rule>
 
     <rule name="RemoveCommentedCodeRule"
+          language="java"
+          since="1.6"
           message="java.comment.RemoveCommentedCodeRule.rule.msg"
           class="com.alibaba.p3c.pmd.lang.java.rule.comment.RemoveCommentedCodeRule">
-        <description>java.comment.RemoveCommentedCodeRule.rule.desc</description>
         <priority>3</priority>
+    </rule>
+
+    <rule name="MeaningfulCommentRule"
+          language="java"
+          since="1.6"
+          message="java.comment.MeaningfulCommentRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.comment.MeaningfulCommentRule">
+        <priority>2</priority>
         <example>
-<![CDATA[
-Positive example: For codes which are temporarily removed and likely to be reused, use /// to add a reasonable note.
- public static void hello() {
-    /// Business is stopped temporarily by the owner.
-    // Business business = new Business();
-    // business.active();
-    System.out.println("it's finished");
-}
-]]>
+            <![CDATA[
+    // Bad - meaningless comment
+    /**
+     * 方法
+     */
+    public void processData() {
+        // ...
+    }
+    
+    /**
+     * TODO
+     */
+    public void handleRequest() {
+        // ...
+    }
+    
+    // Good - meaningful comment
+    /**
+     * 处理用户提交的订单数据，包括验证、计算折扣和生成订单号
+     * 
+     * @param orderData 用户提交的订单信息
+     * @return 处理后的订单对象
+     */
+    public Order processOrder(OrderData orderData) {
+        // ...
+    }
+            ]]>
         </example>
     </rule>
 </ruleset>

@@ -102,9 +102,9 @@
         <![CDATA[Do not add 'is' as prefix while defining Boolean variable, since it may cause a serialization exception in some Java Frameworks]]>
     </entry>
     <entry key="java.naming.ArrayNamingShouldHaveBracketRule.rule.msg">
-        <![CDATA[Brackets are a part of an Array type. The definition could be: String[] args]]>
+        <![CDATA[Square brackets are a part of array type, not variable name.]]>
     </entry>
-    <entry key="java.concurrent.AvoidUseTimerRule.violation.msg">Use ScheduledExecutorService instead.</entry>
+    <entry key="java.concurrent.AvoidUseTimerRule.violation.msg">ScheduledExecutorService is better.</entry>
     <entry key="java.concurrent.AvoidUseTimerRule.rule.msg">
         <![CDATA[Run multiple TimeTask by using ScheduledExecutorService rather than Timer because Timer will kill all running threads in case of failing to catch exceptions.]]>
     </entry>
@@ -443,12 +443,19 @@ The format of date is 'yyyy/MM/dd'.
     </entry>
 
     <entry key="java.comment.RemoveCommentedCodeRule.rule.msg">
-        <![CDATA[Codes or configuration that is noticed to be obsoleted should be resolutely removed from projects.]]>
+        <![CDATA[Remove commented-out code as soon as possible.]]>
     </entry>
     <entry key="java.comment.RemoveCommentedCodeRule.rule.desc">
-        <![CDATA[
-Note: Remove obsoleted codes or configuration in time to avoid code redundancy.
-        ]]>
+        <![CDATA[Such code segments are obsolete. It is recommended to remove them completely. If code is temporarily removed and likely to be reused, use /// to add a reasonable note.]]>
+    </entry>
+    <entry key="java.comment.MeaningfulCommentRule.violation.msg.missing">
+        <![CDATA[Public method '%s' is missing comments.]]>
+    </entry>
+    <entry key="java.comment.MeaningfulCommentRule.violation.msg.meaningless">
+        <![CDATA[Method '%s' has meaningless comment. Please provide detailed functionality description.]]>
+    </entry>
+    <entry key="java.comment.MeaningfulCommentRule.rule.msg">
+        <![CDATA[Public methods must have meaningful comments that describe the method's functionality, purpose, and important notes. Avoid meaningless comments like "method", "function", "TODO", etc.]]>
     </entry>
 
 
@@ -558,6 +565,19 @@ Positive example:
     </entry>
     <entry key="java.other.AvoidDoubleOrFloatEqualCompareRule.rule.msg">
         <![CDATA[To judge the equivalence of floating-point numbers, == cannot be used for primitive types, while equals cannot be used for wrapper classes.]]>
+    </entry>
+
+    <entry key="java.naming.AvoidChinesePinyinNamingRule.violation.msg.variable">
+        <![CDATA[Variable name '%s' uses pinyin naming. Please use meaningful English words.]]>
+    </entry>
+    <entry key="java.naming.AvoidChinesePinyinNamingRule.violation.msg.method">
+        <![CDATA[Method name '%s' uses pinyin naming. Please use meaningful English words.]]>
+    </entry>
+    <entry key="java.naming.AvoidChinesePinyinNamingRule.violation.msg.parameter">
+        <![CDATA[Parameter name '%s' uses pinyin naming. Please use meaningful English words.]]>
+    </entry>
+    <entry key="java.naming.AvoidChinesePinyinNamingRule.rule.msg">
+        <![CDATA[Avoid using Chinese pinyin for naming. Use meaningful English vocabulary instead. Exceptions: Internationally accepted names like alibaba, taobao, youku, hangzhou can be treated as English.]]>
     </entry>
 
 </properties>

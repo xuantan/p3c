@@ -158,4 +158,27 @@
         </example>
     </rule>
 
+    <rule name="AvoidChinesePinyinNamingRule"
+          language="java"
+          since="1.6"
+          message="java.naming.AvoidChinesePinyinNamingRule.rule.msg"
+          class="com.alibaba.p3c.pmd.lang.java.rule.naming.AvoidChinesePinyinNamingRule">
+        <priority>2</priority>
+        <example>
+            <![CDATA[
+    // Bad
+    String shuju = "data";
+    int zongshu = 100;
+    
+    // Good
+    String data = "data";
+    int totalCount = 100;
+    
+    // Allowed (whitelist)
+    String taobaoUrl = "https://www.taobao.com";
+    AlibabaConfig alibabaConfig = new AlibabaConfig();
+            ]]>
+        </example>
+    </rule>
+
 </ruleset>
